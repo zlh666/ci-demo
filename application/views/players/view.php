@@ -1,0 +1,1 @@
+<h2><?php echo $players_item['name'].':'.$players_item['age'];?></h2>
