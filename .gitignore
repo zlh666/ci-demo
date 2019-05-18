@@ -32,6 +32,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 
 ## config
 .editorconfig
-config.php
 redis.php
 database.php
