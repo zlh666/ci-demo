@@ -11,7 +11,7 @@ class Players_model extends CI_Model
     public function get_players($id = FALSE)
     {
         if ($id == FALSE) {
-            //如果value的值发生变化，返回false
+            //如果value的值发生变化，返回false？
             $rows = $this->_get_all();
             if (!$rows) {
                 $rows = $this->db->get('players')->result_array();
@@ -46,12 +46,16 @@ class Players_model extends CI_Model
 
     private function _get_all()
     {
+        echo '<pre>';
+        var_dump($this->cache->redis);
+        echo '<pre>';
+
         return $this->cache->redis->get(self::KEY);
     }
 
     private function _set_all($rows)
     {
-        $this->cache->redis->save(self::KEY, $rows);
+        $this->cache->redis->save(self::KEY, $rows,120);//2分钟,需要设置缓存时间
     }
 
     private function _get_row($rkey)

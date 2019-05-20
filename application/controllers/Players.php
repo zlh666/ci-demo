@@ -44,4 +44,22 @@ class Players extends CI_Controller
             $this->load->view('players/success');
         }
     }
+
+    public function test_cache()
+    {
+        // $this->output->cache(2);//整个方法被缓存
+        $this->output->enable_profiler(TRUE);
+        $data['players'] = $this->players_model->get_players();
+        $data['title'] = 'players archive';
+        $this->load->view('players/index', $data);
+    }
+
+    public function test_cli($to)
+    {
+        $name = 'hello '.$to.PHP_EOL;
+
+        eval("\$str = \"$name\";");
+
+        echo $str;
+    }
 }

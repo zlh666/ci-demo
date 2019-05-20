@@ -53,10 +53,6 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-// $route['players'] = 'players';
-// $route['players/(:any)'] = 'players/view/$1';
-// $route['players/create'] = 'players/create';
-
 $route['players/create'] = 'players/create';
-$route['players/(:any)'] = 'players/view/$1';
+$route['players/view/(:any)'] = 'players/view/$1';
 $route['players'] = 'players';
